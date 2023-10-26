@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviourPun
     [PunRPC]
     void WinGame()
     {
-        // set the UI win text
+        /*if(boss)*/
         GameUI.instance.SetWinText();
         Invoke("GoBackToMenu", 3);
     }
