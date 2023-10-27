@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviourPun
     private int playersInGame;
     public PlayerController[] players;
 
+    public GameObject boss;
+    public GameObject winBackground;
+
     // instance
     public static GameManager instance;
     void Awake()
@@ -42,11 +45,19 @@ public class GameManager : MonoBehaviourPun
 
     }
 
+    public void SetWinText()
+    {
+        winBackground.gameObject.SetActive(true);
+    }
+
     [PunRPC]
     void WinGame()
     {
-        /*if(boss)*/
-        GameUI.instance.SetWinText();
-        Invoke("GoBackToMenu", 3);
+        if (boss.GetComponent<Enemy>().isdead = true)
+        {
+            Debug.Log("Works");
+            SetWinText();
+            Invoke("GoBackToMenu", 3);
+        }
     }
 }

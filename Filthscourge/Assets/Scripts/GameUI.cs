@@ -7,11 +7,7 @@ using TMPro;
 public class GameUI : MonoBehaviour
 {
     public TextMeshProUGUI goldText;
-
     public TextMeshProUGUI keyText;
-
-    public Image winBackground;
-
     public GameObject introScreen;
 
     // instance
@@ -36,10 +32,5 @@ public class GameUI : MonoBehaviour
     public void UpdateKeysText(int keys)
     {
         keyText.text = "<b>Keys:</b> " + keys;
-    }
-
-    public void SetWinText()
-    {
-        winBackground.gameObject.SetActive(true);
     }
 }

@@ -37,6 +37,10 @@ public class Enemy : MonoBehaviourPun
     public SpriteRenderer sr;
     public Rigidbody2D rig;
 
+    public bool isdead = false;
+
+    public static Enemy instance;
+
     void Start()
     {
         healthBar.Initialize(enemyName, maxHp);
@@ -127,13 +131,7 @@ public class Enemy : MonoBehaviourPun
 
     void Die()
     {
-        /*StartCoroutine(DeathExplode());
-        IEnumerator DeathExplode()
-        {
-            _particleSystem.Play();
-            yield return new WaitForSeconds(0.05f);
-        } */
-
+        isdead = true;
         if (objectToSpawnOnDeath != string.Empty)
             PhotonNetwork.Instantiate(objectToSpawnOnDeath, transform.position, Quaternion.identity);
         PhotonNetwork.Destroy(gameObject);
